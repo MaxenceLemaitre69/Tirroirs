@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8673628184968070340}
   - component: {fileID: 4133976746953074084}
   - component: {fileID: 6366423412671269687}
+  - component: {fileID: -4697131530405782670}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,31 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-4697131530405782670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217915325089810337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a41a0300fdb564086f999882900f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableDialogueSpawnFade
+  dialogue: {fileID: 0}
+  dialogueUI: {fileID: 0}
+  triggerOnce: 1
+  spawnObject: 0
+  usePrefab: 0
+  spawnAtInteractTime: 1
+  prefabToSpawn: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  objectToReveal: {fileID: 0}
+  fadeInOnReveal: 1
+  fadeInDuration: 0.6
+  disableAfterFadeOut: 1
+  hideTargets: []
+  sfxSource: {fileID: 0}
+  appearSfx: {fileID: 0}
+  disappearSfx: {fileID: 0}

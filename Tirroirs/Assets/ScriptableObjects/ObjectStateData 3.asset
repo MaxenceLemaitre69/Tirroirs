@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca233a6662e2bb64aaeb32291b3422dc, type: 3}
-  m_Name: ObjectStateData
+  m_Name: ObjectStateData 3
   m_EditorClassIdentifier: Assembly-CSharp::ObjectStateData
   initialPrefab: {fileID: 400784157932152164, guid: f40d6fa5134cb554aba30961d39af578, type: 3}
   afterEventPrefab: {fileID: 7217915325089810337, guid: b9e18a7f3b1124f48aa4cb751ba3486a, type: 3}
-  noteState1: Cube
-  noteState2: Capsule
+  noteState1: 1
+  noteState2: 2
