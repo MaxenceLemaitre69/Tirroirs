@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
 using System.Collections.Generic;
 
 public class NotebookManager : MonoBehaviour
@@ -10,7 +9,7 @@ public class NotebookManager : MonoBehaviour
 
     [Header("UI")]
     public GameObject notebookRoot;   // le panel/canvas root à activer/désactiver
-    public TMP_Text noteText; // texte affiché sur la feuille
+    public TMP_Text noteText;         // texte affiché sur la feuille
     public Button closeButton;        // optionnel
 
     [Header("Touche")]
@@ -23,9 +22,14 @@ public class NotebookManager : MonoBehaviour
     private bool open = false;
     private List<MonoBehaviour> disabledDuringUI = new List<MonoBehaviour>();
 
-    // On stocke les notes collectées (sans doublons)
+    // ✅ Historique complet des notes (dans l'ordre)
+    private readonly List<string> notesInOrder = new List<string>();
+
+    // ✅ Empêche les doublons exacts (même texte)
     private readonly HashSet<string> collectedNotes = new HashSet<string>();
-    private string lastShown = "";
+
+    // ✅ Texte complet affiché
+    private string fullText = "";
 
     void Awake()
     {
@@ -49,6 +53,12 @@ public class NotebookManager : MonoBehaviour
             if (open) Close();
             else Open();
         }
+        
+        if (open)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void Open()
@@ -63,9 +73,9 @@ public class NotebookManager : MonoBehaviour
 
         DisableControlsByName();
 
-        // Affiche la dernière note si dispo
+        // ✅ Pas de "pas de note": si rien, c'est juste vide
         if (noteText != null)
-            noteText.text = string.IsNullOrEmpty(lastShown) ? "(Aucune note pour le moment)" : lastShown;
+            noteText.text = fullText;
     }
 
     public void Close()
@@ -85,20 +95,34 @@ public class NotebookManager : MonoBehaviour
     {
         if (string.IsNullOrWhiteSpace(note)) return;
 
-        // Sans doublons
-        if (collectedNotes.Add(note))
+        // ✅ on empêche uniquement les doublons exacts
+        if (!collectedNotes.Add(note))
+            return;
+
+        notesInOrder.Add(note);
+
+        // ✅ on reconstruit le texte affiché (simple et fiable)
+        fullText = BuildNotebookText();
+
+        // ✅ update direct si le carnet est ouvert
+        if (open && noteText != null)
+            noteText.text = fullText;
+    }
+
+    string BuildNotebookText()
+    {
+        // Format : chaque note sur un bloc, séparé par une ligne vide
+        // (tu peux changer la mise en forme ici)
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        for (int i = 0; i < notesInOrder.Count; i++)
         {
-            lastShown = note; // on affiche la nouvelle note
-        }
-        else
-        {
-            // si déjà collectée, on peut quand même la montrer
-            lastShown = note;
+            if (i > 0) sb.Append("\n\n");
+            sb.Append("• ");
+            sb.Append(notesInOrder[i]);
         }
 
-        // Si carnet ouvert, update direct
-        if (open && noteText != null)
-            noteText.text = lastShown;
+        return sb.ToString();
     }
 
     void DisableControlsByName()
@@ -134,3 +158,4 @@ public class NotebookManager : MonoBehaviour
         disabledDuringUI.Clear();
     }
 }
+
