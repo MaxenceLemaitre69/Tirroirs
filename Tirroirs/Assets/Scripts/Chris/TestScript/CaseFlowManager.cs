@@ -167,7 +167,6 @@ public class CaseFlowManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    //  ferme RoomSelector + remet contrôles/cursor
     void ForceCloseRoomSelectorAndRestoreGameplay()
     {
         if (roomSelectorCanvasRoot != null && roomSelectorCanvasRoot.activeSelf)
@@ -175,28 +174,20 @@ public class CaseFlowManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        // IMPORTANT : le RoomSelector peut avoir désactivé tes scripts
+        
         ForceEnableControlsByName();
-
-        // et on vide la liste au cas où on avait désactivé nous-même
+        
         RestoreControls();
     }
-
-    // ------------------------
-    // PHASES
-    // ------------------------
 
     void SetPhase(GamePhase newPhase)
     {
         phase = newPhase;
-
-        // ferme UI par défaut
+        
         SafeSetActive(accusationCanvasRoot, false);
         SafeSetActive(victoryCanvasRoot, false);
         SafeSetActive(defeatCanvasRoot, false);
-
-        // curseur + contrôles selon phase
+        
         if (phase == GamePhase.AccusationChoice || phase == GamePhase.Victory || phase == GamePhase.Defeat)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -208,7 +199,6 @@ public class CaseFlowManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            // Important : si on revient en gameplay après une UI, on force les contrôles
             ForceEnableControlsByName();
         }
 
@@ -249,10 +239,6 @@ public class CaseFlowManager : MonoBehaviour
         }
     }
 
-    // ------------------------
-    // INTERACTIONS
-    // ------------------------
-
     public void OnPolicemanInteracted(DialogueData startDialogue, DialogueData answerDialogue)
     {
         if (DialogueUI.AnyDialoguePlaying) return;
@@ -291,10 +277,6 @@ public class CaseFlowManager : MonoBehaviour
         Debug.Log("Porte utilisée pendant investigation (si tu veux faire quelque chose ici).");
     }
 
-    // ------------------------
-    // TIMER 10 MIN
-    // ------------------------
-
     void StartInvestigationTimer()
     {
         if (timerRoutine != null) StopCoroutine(timerRoutine);
@@ -320,12 +302,10 @@ public class CaseFlowManager : MonoBehaviour
 
     IEnumerator TimeUpTeleportAndStartAnswerWindow()
     {
-        //  ferme les UI gênantes + remet gameplay avant TP
         ForceCloseRoomSelectorAndRestoreGameplay();
 
         TeleportPlayer();
-
-        //  double sécurité
+        
         ForceCloseRoomSelectorAndRestoreGameplay();
 
         SafeSetActive(timeUpCanvasRoot, true);
@@ -355,14 +335,10 @@ public class CaseFlowManager : MonoBehaviour
         player.position = teleportDestination.position;
         player.rotation = teleportDestination.rotation;
         if (playerCC != null) playerCC.enabled = true;
-
-        // sécurité
+        
         Time.timeScale = 1f;
     }
-
-    // ------------------------
-    // TIMER 5 MIN
-    // ------------------------
+    
 
     void StartAnswerWindowTimer()
     {
@@ -386,10 +362,7 @@ public class CaseFlowManager : MonoBehaviour
         SetTimerText("00:00");
         TriggerDefeat();
     }
-
-    // ------------------------
-    // ACCUSATION
-    // ------------------------
+    
 
     void ChooseSuspect(int suspectIndex)
     {
@@ -410,10 +383,7 @@ public class CaseFlowManager : MonoBehaviour
         SetPhase(GamePhase.Defeat);
         SafeSetActive(defeatCanvasRoot, true);
     }
-
-    // ------------------------
-    // DISABLE / RESTORE CONTROLS (pour UI accusation/victoire/défaite)
-    // ------------------------
+    
 
     void DisableControlsByName()
     {
