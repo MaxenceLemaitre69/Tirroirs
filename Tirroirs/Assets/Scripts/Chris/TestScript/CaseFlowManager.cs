@@ -46,6 +46,9 @@ public class CaseFlowManager : MonoBehaviour
     [Header("Téléportation fin 10 min")]
     public Transform teleportDestination;
 
+    [Header("Room Selector à fermer automatiquement")]
+    public GameObject roomSelectorCanvasRoot;
+
     [Header("Accusation UI")]
     public GameObject accusationCanvasRoot;
     public Button suspect1Button;
@@ -63,7 +66,10 @@ public class CaseFlowManager : MonoBehaviour
 
     [Header("Bloquer contrôles pendant UI (accusation/victoire/défaite)")]
     public GameObject controlsRoot;
+
+    [Tooltip("Met ici les NOMS DE CLASSE des scripts de contrôle (ex: PlayerMovement, MouseLook, Interact...)")]
     public List<string> scriptTypeNamesToDisable = new List<string>();
+
     private readonly List<MonoBehaviour> disabledDuringUI = new List<MonoBehaviour>();
 
     private Coroutine timerRoutine;
@@ -74,11 +80,13 @@ public class CaseFlowManager : MonoBehaviour
         Instance = this;
 
         if (dialogueUI == null) dialogueUI = Object.FindFirstObjectByType<DialogueUI>();
+
         if (player == null)
         {
             var p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) player = p.transform;
         }
+
         if (playerCC == null && player != null) playerCC = player.GetComponent<CharacterController>();
 
         if (controlsRoot == null)
@@ -88,7 +96,6 @@ public class CaseFlowManager : MonoBehaviour
             else if (Camera.main != null) controlsRoot = Camera.main.gameObject;
         }
 
-
         SafeSetActive(timeUpCanvasRoot, false);
         SafeSetActive(accusationCanvasRoot, false);
         SafeSetActive(victoryCanvasRoot, false);
@@ -97,13 +104,16 @@ public class CaseFlowManager : MonoBehaviour
         if (suspect1Button != null) suspect1Button.onClick.AddListener(() => ChooseSuspect(1));
         if (suspect2Button != null) suspect2Button.onClick.AddListener(() => ChooseSuspect(2));
         if (suspect3Button != null) suspect3Button.onClick.AddListener(() => ChooseSuspect(3));
-        
+
         if (victoryMainMenuButton != null) victoryMainMenuButton.onClick.AddListener(() => Debug.Log("Main Menu (Victory)"));
         if (defeatMainMenuButton != null) defeatMainMenuButton.onClick.AddListener(() => Debug.Log("Main Menu (Defeat)"));
 
-
         SetPhase(GamePhase.WaitingPoliceStart);
     }
+
+    // ------------------------
+    // HELPERS
+    // ------------------------
 
     void SafeSetActive(GameObject go, bool active)
     {
@@ -116,16 +126,77 @@ public class CaseFlowManager : MonoBehaviour
         go.tag = canInteract ? interactableTag : disabledTag;
     }
 
+    void SetTimerText(string s)
+    {
+        if (timerText != null) timerText.text = s;
+    }
+
+    string FormatTime(float seconds)
+    {
+        if (seconds < 0) seconds = 0;
+        int total = Mathf.CeilToInt(seconds);
+        int m = total / 60;
+        int s = total % 60;
+        return $"{m:00}:{s:00}";
+    }
+
+    //  Force ON les scripts même si un autre UI les a désactivés
+    void ForceEnableControlsByName()
+    {
+        if (controlsRoot == null || scriptTypeNamesToDisable == null || scriptTypeNamesToDisable.Count == 0)
+            return;
+
+        var all = controlsRoot.GetComponentsInChildren<MonoBehaviour>(true);
+
+        foreach (var mb in all)
+        {
+            if (mb == null) continue;
+            string typeName = mb.GetType().Name;
+
+            for (int i = 0; i < scriptTypeNamesToDisable.Count; i++)
+            {
+                if (typeName == scriptTypeNamesToDisable[i])
+                {
+                    mb.enabled = true;
+                    break;
+                }
+            }
+        }
+
+        if (playerCC != null) playerCC.enabled = true;
+        Time.timeScale = 1f;
+    }
+
+    //  ferme RoomSelector + remet contrôles/cursor
+    void ForceCloseRoomSelectorAndRestoreGameplay()
+    {
+        if (roomSelectorCanvasRoot != null && roomSelectorCanvasRoot.activeSelf)
+            roomSelectorCanvasRoot.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        // IMPORTANT : le RoomSelector peut avoir désactivé tes scripts
+        ForceEnableControlsByName();
+
+        // et on vide la liste au cas où on avait désactivé nous-même
+        RestoreControls();
+    }
+
+    // ------------------------
+    // PHASES
+    // ------------------------
+
     void SetPhase(GamePhase newPhase)
     {
         phase = newPhase;
 
-
+        // ferme UI par défaut
         SafeSetActive(accusationCanvasRoot, false);
         SafeSetActive(victoryCanvasRoot, false);
         SafeSetActive(defeatCanvasRoot, false);
 
-
+        // curseur + contrôles selon phase
         if (phase == GamePhase.AccusationChoice || phase == GamePhase.Victory || phase == GamePhase.Defeat)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -136,9 +207,11 @@ public class CaseFlowManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            RestoreControls();
+
+            // Important : si on revient en gameplay après une UI, on force les contrôles
+            ForceEnableControlsByName();
         }
-        
+
         switch (phase)
         {
             case GamePhase.WaitingPoliceStart:
@@ -176,20 +249,10 @@ public class CaseFlowManager : MonoBehaviour
         }
     }
 
-    void SetTimerText(string s)
-    {
-        if (timerText != null) timerText.text = s;
-    }
+    // ------------------------
+    // INTERACTIONS
+    // ------------------------
 
-    string FormatTime(float seconds)
-    {
-        if (seconds < 0) seconds = 0;
-        int total = Mathf.CeilToInt(seconds);
-        int m = total / 60;
-        int s = total % 60;
-        return $"{m:00}:{s:00}";
-    }
-    
     public void OnPolicemanInteracted(DialogueData startDialogue, DialogueData answerDialogue)
     {
         if (DialogueUI.AnyDialoguePlaying) return;
@@ -206,10 +269,8 @@ public class CaseFlowManager : MonoBehaviour
 
     IEnumerator PoliceStartRoutine(DialogueData dialogue)
     {
-
         if (dialogueUI != null && dialogue != null)
             yield return StartCoroutine(dialogueUI.PlayDialogue(dialogue));
-
 
         SetPhase(GamePhase.InvestigationTimer);
         StartInvestigationTimer();
@@ -217,10 +278,8 @@ public class CaseFlowManager : MonoBehaviour
 
     IEnumerator PoliceAnswerRoutine(DialogueData dialogue)
     {
-
         if (dialogueUI != null && dialogue != null)
             yield return StartCoroutine(dialogueUI.PlayDialogue(dialogue));
-
 
         SetPhase(GamePhase.AccusationChoice);
         SafeSetActive(accusationCanvasRoot, true);
@@ -231,7 +290,10 @@ public class CaseFlowManager : MonoBehaviour
         if (phase != GamePhase.InvestigationTimer) return;
         Debug.Log("Porte utilisée pendant investigation (si tu veux faire quelque chose ici).");
     }
-    
+
+    // ------------------------
+    // TIMER 10 MIN
+    // ------------------------
 
     void StartInvestigationTimer()
     {
@@ -251,21 +313,24 @@ public class CaseFlowManager : MonoBehaviour
         }
 
         SetTimerText("00:00");
-        
+
         SetPhase(GamePhase.Teleported_ShowTimeUp);
         StartCoroutine(TimeUpTeleportAndStartAnswerWindow());
     }
 
     IEnumerator TimeUpTeleportAndStartAnswerWindow()
     {
+        //  ferme les UI gênantes + remet gameplay avant TP
+        ForceCloseRoomSelectorAndRestoreGameplay();
 
         TeleportPlayer();
 
+        //  double sécurité
+        ForceCloseRoomSelectorAndRestoreGameplay();
 
         SafeSetActive(timeUpCanvasRoot, true);
         yield return new WaitForSeconds(timeUpDuration);
         SafeSetActive(timeUpCanvasRoot, false);
-
 
         SetPhase(GamePhase.WaitingPoliceAnswer);
         StartAnswerWindowTimer();
@@ -290,9 +355,14 @@ public class CaseFlowManager : MonoBehaviour
         player.position = teleportDestination.position;
         player.rotation = teleportDestination.rotation;
         if (playerCC != null) playerCC.enabled = true;
+
+        // sécurité
+        Time.timeScale = 1f;
     }
 
-
+    // ------------------------
+    // TIMER 5 MIN
+    // ------------------------
 
     void StartAnswerWindowTimer()
     {
@@ -310,16 +380,16 @@ public class CaseFlowManager : MonoBehaviour
             yield return null;
             t -= Time.deltaTime;
 
-
             if (phase == GamePhase.AccusationChoice) yield break;
         }
-
 
         SetTimerText("00:00");
         TriggerDefeat();
     }
 
-
+    // ------------------------
+    // ACCUSATION
+    // ------------------------
 
     void ChooseSuspect(int suspectIndex)
     {
@@ -340,7 +410,10 @@ public class CaseFlowManager : MonoBehaviour
         SetPhase(GamePhase.Defeat);
         SafeSetActive(defeatCanvasRoot, true);
     }
-    
+
+    // ------------------------
+    // DISABLE / RESTORE CONTROLS (pour UI accusation/victoire/défaite)
+    // ------------------------
 
     void DisableControlsByName()
     {
@@ -375,4 +448,5 @@ public class CaseFlowManager : MonoBehaviour
         disabledDuringUI.Clear();
     }
 }
+
 

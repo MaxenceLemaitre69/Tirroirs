@@ -16,5 +16,5 @@ MonoBehaviour:
   hoverPromptState2: Appuyez sur E
   dialogueState1: {fileID: 11400000, guid: 9ef19cf80a5159a498a2a8ac0e852e35, type: 2}
   dialogueState2: {fileID: 11400000, guid: 9ef19cf80a5159a498a2a8ac0e852e35, type: 2}
-  noteState1: "Premi\xE8re Objet"
-  noteState2: "Deuxi\xE8me Objet"
+  noteState1: "troisi\xE8me"
+  noteState2: "quatri\xE8me"
