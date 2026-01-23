@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Re
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - text: Re
+  - text: Reboujour, donnes moi ton verdict.
     audio: {fileID: 0}
     duration: 3

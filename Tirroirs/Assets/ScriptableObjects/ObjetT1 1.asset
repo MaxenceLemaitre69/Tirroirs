@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca233a6662e2bb64aaeb32291b3422dc, type: 3}
-  m_Name: ObjetT1
+  m_Name: ObjetT1 1
   m_EditorClassIdentifier: Assembly-CSharp::ObjectStateData
   hoverPromptState1: Appuyez sur E
   hoverPromptState2: Appuyez sur E
-  dialogueState1: {fileID: 11400000, guid: 9ef19cf80a5159a498a2a8ac0e852e35, type: 2}
-  dialogueState2: {fileID: 11400000, guid: fbe0adca53f96094dabe85987b1c22a9, type: 2}
+  dialogueState1: {fileID: 11400000, guid: 2e5bb9679a58adf43815ed1364bbeb72, type: 2}
+  dialogueState2: {fileID: 11400000, guid: 2e5bb9679a58adf43815ed1364bbeb72, type: 2}
   noteState1: "Premi\xE8re Objet"
   noteState2: "Deuxi\xE8me Objet"
