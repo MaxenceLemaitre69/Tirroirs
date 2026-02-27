@@ -8,7 +8,6 @@ public class DialogueData : ScriptableObject
     {
         [TextArea] public string text;
         public AudioClip audio;
-        public float duration = 3f;
     }
 
     public DialogueLine[] lines;
