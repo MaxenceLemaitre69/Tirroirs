@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: CadrePhoto
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "il est retrouv\xE9 par terre, bris\xE9, \xE0 l'int\xE9rieur figure une
+      photo du couple souriant, les deux emmitoufl\xE9s dans les bras de l\u2019autre."
+    audio: {fileID: 0}
+    duration: 3

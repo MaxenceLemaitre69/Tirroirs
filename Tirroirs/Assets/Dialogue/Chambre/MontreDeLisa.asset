@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: MontreDeLisa
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Une montre de luxe, au vus de son armature elle semble plutot f\xE9minine.
+      Nous pouvons apercevoir qu\u2019elle est bris\xE9e au niveau du cadran l\u2019heure
+      est bloqu\xE9 \xE0 1h06, cela semble provenir d\u2019un choc."
+    audio: {fileID: 0}
+    duration: 4

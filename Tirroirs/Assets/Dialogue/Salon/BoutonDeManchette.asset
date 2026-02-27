@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: BoutonDeManchette
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Il est retrouv\xE9 dans le salon pr\xE8s du canap\xE9, il appartiendrait
+      \xE0 l\u2019uniforme d\u2019Albert, il \xE0 du se d\xE9crocher."
+    audio: {fileID: 0}
+    duration: 3

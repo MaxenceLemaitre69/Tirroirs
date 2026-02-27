@@ -13,6 +13,12 @@ MonoBehaviour:
   m_Name: Bonjour
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - text: Bonjour
+  - text: "Bonjour mon cher inspecteur, merci de vous \xEAtre d\xE9plac\xE9 aussi
+      rapidement, l\u2019affaire viens tout juste de tomber, l\u2019enti\xE8ret\xE9
+      de l\u2019appartement demeure intouch\xE9, nous avons un mort dans la maison
+      et je compte sur vous pour \xE9lucider ce myst\xE8re, d\xE9p\xEAchez vous pour
+      faire vos hypoth\xE8ses avant que la police scientifique n\u2019intervienne
+      et ne proc\xE8de \xE0 l\u2019extraction du corps et des potentiels indices,
+      venez me retrouver ici dans 10 minutes. "
     audio: {fileID: 0}
-    duration: 3
+    duration: 15

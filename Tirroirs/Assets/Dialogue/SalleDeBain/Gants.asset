@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: Gants
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "des gants de tissus, il doivent provenir d\u2019un uniforme, ils sont
+      d\xE9chir\xE9s par endroit et tach\xE9s, la nature des t\xE2ches reste non
+      identifi\xE9, mais il est clair que ces gants ont \xE9t\xE9 jet\xE9s car inutilisables."
+    audio: {fileID: 0}
+    duration: 4

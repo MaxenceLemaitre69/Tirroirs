@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: "BoiteDeM\xE9dicaments"
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Plusieurs boite de m\xE9dicaments de traitements, anxiolytiques, anti-d\xE9presseur
+      et somnif\xE8res, tous annot\xE9 \u201CA\u201D sur la boite, ils sont quasiment
+      tous vide \xE9galement."
+    audio: {fileID: 0}
+    duration: 4

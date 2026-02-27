@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: BagueDeMariage
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: " Elle se trouve sous le lit, elle appartient \xE0 Georges, il s\u2019agit
+      sans aucun doute de son alliance. L\u2019a t\u2019il fait tomber ? Ou il l\u2019a
+      consciemment retir\xE9 ?"
+    audio: {fileID: 0}
+    duration: 3

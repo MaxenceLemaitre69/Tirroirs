@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: PotDeNoixDeMuscades
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: " Il est au milieu d\u2019autres \xE9pices, le couvercle est l\xE9g\xE8rement
+      d\xE9viss\xE9, au dos une inscription d\xE9chir\xE9e: \u201CAttention, tenir
+      hors de la port\xE9e des enfants, et ne pas avoir un usage abusif de ce produit
+      au risque de\u2026"
+    audio: {fileID: 0}
+    duration: 4

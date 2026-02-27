@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: Tasse
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: " Elle est en c\xE9ramique, un fond de liquide est rest\xE9 au fond, il
+      est plut\xF4t opaque, il s\u2019agit peut \xEAtre du th\xE9 quotidien d\u2019Albert,
+      m\xE9lang\xE9 \xE0 quelque chose d\u2019autre, surement un ar\xF4me."
+    audio: {fileID: 0}
+    duration: 3

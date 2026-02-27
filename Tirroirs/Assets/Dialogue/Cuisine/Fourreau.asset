@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fourreau
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   lines:
-  - text: 
+  - text: "Il s\u2019agit d\u2019un fourreau des plus classique, en bois, il pr\xE9sente
+      des \xE9raflures, un couteau est manquant."
     audio: {fileID: 0}
     duration: 3

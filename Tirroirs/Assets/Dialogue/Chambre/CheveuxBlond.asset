@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: CheveuxBlond
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Un long cheveux blond retrouv\xE9 sur un des oreillers, appartient til
+      \xE0 l\u2019une des deux femmes pr\xE9sente dans la maison quotidiennement
+      ?"
+    audio: {fileID: 0}
+    duration: 3

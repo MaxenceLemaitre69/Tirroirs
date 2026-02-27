@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: "T\xE9l\xE9phoneDeGeorge"
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Il est pos\xE9 sur la table de chevet, pour les besoins de l'enqu\xEAte
+      il \xE0 \xE9t\xE9 d\xE9verrouill\xE9, dans son historique d\u2019appel entre
+      les appels avec Lisa sont enchev\xEAtr\xE9 des appels avec une certaine Cherryl. "
+    audio: {fileID: 0}
+    duration: 4

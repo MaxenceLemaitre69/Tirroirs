@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: MenuDelLaSemaineDuCouple
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: " C\u2019est une liste avec tout les jours de la semaine, avec des plats
+      \xE9crits dans une d\xE9licate \xE9criture, le couple effectue des demandes
+      de menu \xE0 leur chef cuisinier Henry toute les semaines."
+    audio: {fileID: 0}
+    duration: 4

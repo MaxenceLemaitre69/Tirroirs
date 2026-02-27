@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: OutilDeNettoyage
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Il n\u2019y a pas de choses particuli\xE8res a dire si ce n\u2019est qu\u2019ils
+      sont en d\xE9sordre et rang\xE9s \xE0 la va-vite."
+    audio: {fileID: 0}
+    duration: 3

@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: Testament
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "Testament manuscrit de Georges, il est \xE9crit qu\u2019il l\xE8gue sa
+      collection de livre et de th\xE9 \xE0 Albert, qui selon lui serait le seul
+      domestique ayant vraiment pens\xE9 \xE0 lui, il n\u2019a rien \xE9crit d\u2019autre
+      n\u2019ayant pas beaucoup de possessions."
+    audio: {fileID: 0}
+    duration: 4

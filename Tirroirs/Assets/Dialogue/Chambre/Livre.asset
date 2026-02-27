@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
   m_Name: Livre
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  lines: []
+  lines:
+  - text: "\u201CLes fleurs du Mal\u201D de Charles Baudelaire. Il est dans la table
+      de nuit de Georges, certaines pages sont plus abim\xE9es que d\u2019autres,
+      surement relues quotidiennement, surtout dans les chapitres \u201CSpleen\u201D,
+      nous pouvons retrouver gliss\xE9 entre les pages des lettres d\u2019amour datant
+      de 5 ans auparavant, sign\xE9 Lisa."
+    audio: {fileID: 0}
+    duration: 4
