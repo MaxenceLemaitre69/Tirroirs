@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
+  m_Name: D_Lisa
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - text: "Monsieur l\u2019inspecteur enfin ! C\u2019est terrible\u2026 Comme vous
+      le savez mon mari Georges n\u2019est plus de ce monde, j\u2019ai l\u2019impression
+      d\u2019avoir perdu une partie de moi, oui nous nous disputions souvent, j\u2019ai
+      parfois mon caract\xE8re, mais g\xE9n\xE9ralement nous nous pardonnons rapidement
+      et je pensais qu\u2019hier ne ferait pas exception nous nous somme disput\xE9
+      pour une chose futile dans notre chambre puis je suis all\xE9e me coucher vers
+      les 22h et lui est rest\xE9 dans le salon pour y dormir, j\u2019ai entendu
+      du bruit mais je ne me suis pas pos\xE9e plus de question j\u2019ai un sommeil
+      lourd en plus de \xE7a, il a vraiment fallu que Emily me secoue fortement ce
+      matin pour me tirer de l\u2019emprise de Morph\xE9e. Je sais que Georges n'allait
+      pas bien, sa sant\xE9 me pr\xE9occupait beaucoup mais de l\xE0 \xE0 s'\xF4ter
+      la vie je n\u2019arrive pas \xE0 y croire\u2026"
+    audio: {fileID: 0}

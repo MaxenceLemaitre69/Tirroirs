@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
+  m_Name: D_Majordome
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - text: "Bonjour, je me pr\xE9nomme Albert, je travaille pour la famille Midford
+      depuis plus de 40 ans, j\u2019ai eu le temps de voir beaucoup de choses durant
+      mes ann\xE9es de service, j\u2019ai vu la petite Lisa na\xEEtre et grandir,
+      j\u2019ai eu le temps de rencontrer M. Georges \xE9galement je les appr\xE9ciais
+      tous deux, je n\u2019aurais jamais cru qu\u2019une telle chose arriverait,
+      je n\u2019\xE9tais malheureusement pas pr\xE9sent je ne sais pas ce qui a put
+      se passer entre eux, la seule chose que je sais c\u2019est que monsieur n\u2019\xE9tait
+      pas au meilleur de sa forme ces derniers temps, j\u2019ai donc essay\xE9 d\u2019all\xE9ger
+      sa charge au mieux comme je le ferais avec n\u2019importe lequel de mes ma\xEEtres."
+    audio: {fileID: 0}

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
+  m_Name: D_Dan
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - text: "Bonjour, je me pr\xE9nomme Dan, je suis le meilleur ami et le confident
+      de Lisa Midford, elle m\u2019a appel\xE9 de suite quand elle a d\xE9couvert
+      le drame ce matin, et le moins qu\u2019on puisse dire c\u2019est que nous sommes
+      tous \xE9tonn\xE9s ici, c\u2019est une bien triste nouvelle, je sais que \xE7a
+      n\u2019allait pas fort dans le couple et que Lisa a un fort caract\xE8re et
+      qu\u2019elle peut se laisser emporter mais jamais rien de m\xE9chant, Lisa
+      est une femme aimante elle n\u2019aurait jamais laiss\xE9 Georges faire une
+      telle chose, il y a forc\xE9ment m\xE9sentente, je ne veux accuser personne
+      \xE9videmment mais Lisa est aussi victime dans cette histoire."
+    audio: {fileID: 0}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
+  m_Name: D_Cherryl
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - text: "Monsieur l\u2019inspecteur bonjour, je suis Cherryl une amie de Georges,
+      les policiers m\u2019ont appel\xE9s ce matin quand ils ont vu mon contact dans
+      l\u2019historique d\u2019appel de son t\xE9l\xE9phone, ils pensaient que je
+      faisais partie de la famille, je me doutais que quelque chose n\u2019\xE9tais
+      pas normal depuis hier, nous nous appelions tous les soirs, et hier je n\u2019ai
+      rien re\xE7u de sa part ce qui n\u2019est pas dans ses habitudes de me laisser
+      sans nouvelles, je ne peux m\u2019emp\xEAcher que Lisa y est pour quelque chose,
+      cette femme-l\xE0 je ne l\u2019appr\xE9cie pas, il s\u2019en plaint souvent
+      sachez-le, elle a une double face. Je ne veux pas porter des accusations je
+      vous donne mon ressenti mon Georges n\u2019aurait pas fait une telle chose,
+      j\u2019aurais vu des signes pr\xE9curseurs, s\u2019il vous pla\xEEt levez le
+      voile sur cette histoire\u2026"
+    audio: {fileID: 0}

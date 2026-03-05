@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ace8cb2c0b5f5f4eae8d3c88b669c6a, type: 3}
+  m_Name: "D_FemmeDeM\xE9nage"
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
+  lines:
+  - text: "Bonjour moi c\u2019est Emily, je suis la femme de m\xE9nage ici, je suis
+      l\xE0 depuis au moins 5ans, j\u2019aime bien cet endroit, Albert et Henry sont
+      sympa, Lisa et Georges aussi sont gentils m\xEAme si ils se disputent souvent
+      et l\u2019ambiance est souvent tendue apr\xE8s \xE7a, mais souvent le lendemain
+      \xE7a va mieux, alors hier quand je suis partie apr\xE8s ma journ\xE9e de travail
+      \xE0 20 heures il n\u2019\xE9taient d\xE9j\xE0 pas en bon termes Georges semblait
+      assez stress\xE9, je ne pensais pas qu\u2019en commen\xE7ant ma semaine \xE0
+      6 heures je le trouverais mort dans le salon, je ne pensais pas qu\u2019il
+      allait si mal."
+    audio: {fileID: 0}
